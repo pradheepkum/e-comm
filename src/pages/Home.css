@@ -1,0 +1,15 @@
+.home{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.home__container{
+    width: 90%;
+    min-height: 80vh;
+    /* background-color: blue; */
+
+}
