@@ -13,6 +13,7 @@
     height: calc(100vh - 120px);
     /* overflow-y: auto ; */
     /* background-color: blue; */
+    padding: 60px 0px;
 }
 
 .home__Filter {

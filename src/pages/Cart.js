@@ -8,6 +8,12 @@ function Cart() {
 
   const loc = useLocation();
 
+  function calTotal(){
+    let total = 0;
+    loc.state.cart.map((a) => total+=a.price);
+    return total;
+  }
+
   return (
     <div className='cart'>
       <Header cart={loc.state.cart} />
@@ -36,7 +42,7 @@ function Cart() {
             ))}
             <div className='cart_total_amount'>
               <p>Total Amount : </p>
-              <span><b>$0</b></span>
+              <span><b>${calTotal()}</b></span>
             </div>
             <button>Pay now</button>
           </div>
