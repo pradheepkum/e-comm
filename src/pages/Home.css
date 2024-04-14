@@ -9,7 +9,9 @@
 
 .home__container {
     width: 90%;
-    min-height: 80vh;
+    /* min-height: 80vh; */
+    height: calc(100vh - 120px);
+    /* overflow-y: auto ; */
     /* background-color: blue; */
 }
 

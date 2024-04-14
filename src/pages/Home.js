@@ -4,10 +4,12 @@ import Product from '../components/Product'
 import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import './Home.css'
+import Footer from '../components/Footer'
 function Home() {
   const [product, setProduct] = useState([]);  
   const [category, setCategory] = useState('All');
   const [query, setQuery] = useState('');
+  const [cart, setCart] = useState([]);
   const nav = useNavigate();
   useEffect(() => {
 
@@ -28,7 +30,7 @@ function Home() {
   },[])
   return (
     <div className='home'>
-      <Header/>
+      <Header cart={cart}/>
       <div className='home__container'>
         <div className='home__Filter'>
           <input placeholder='Search for products' value={query} onChange={(a)=>{setQuery(a.target.value)}}/>
@@ -53,10 +55,19 @@ function Home() {
         <div className='home__Products'>
           {
             (category==='All' ? query==='' ? product : product.filter((a)=>a.title.toLowerCase().includes(query.toLowerCase())) : product.filter((a)=>a.category === category))
-            .map((a , i)=>(<Product key={a.id} imgurl={a.image} title={a.title} category={a.category} price={a.price}/>))
+            .map((a , i)=>(<Product 
+                                    id={a.id} 
+                                    cart={cart} 
+                                    updateCart={(a)=>{setCart(a)}} 
+                                    key={a.id} 
+                                    imgurl={a.image} 
+                                    title={a.title} 
+                                    category={a.category} 
+                                    price={a.price}/>))
           }
         </div>
       </div>
+      <Footer/>
     </div>
 
   )
